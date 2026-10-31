@@ -6,6 +6,8 @@ Diseño oscuro en violeta y cian con portada animada, órbitas, trazado de seña
 
 Motion para React añade entradas por palabras, partículas, profundidad al cursor, botones magnéticos, tarjetas con inclinación y progreso de lectura. Lucide aporta los iconos SVG. Los efectos compartidos se mantienen en `src/effects.tsx`.
 
+El botón de sol/luna en la cabecera permite cambiar entre modo claro y oscuro y guarda la elección para visitas posteriores. El selector se mantiene en `src/theme.tsx` y los colores en `src/theme.css`.
+
 El contenido bilingüe y la formación se mantienen en `copy` y `profile` dentro de `src/main.tsx`. La formación, el correo y LinkedIn fueron confirmados por el usuario. Consultar [las notas de diseño y contenido](docs/diseno.md).
 
 ## Uso local

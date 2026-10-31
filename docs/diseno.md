@@ -44,3 +44,11 @@ Se incorporaron [Motion para React](https://motion.dev/docs/react) y [Lucide Rea
 Los componentes se encuentran en `src/effects.tsx`. Los movimientos de puntero se aplican solo al ratón. No se intercepta el desplazamiento nativo ni se reemplaza el cursor. El control del pie desactiva también los efectos de Motion; la preferencia de movimiento reducido se observa de forma reactiva. Al pausar, las tarjetas permanecen visibles y las inclinaciones vuelven a cero.
 
 Comprobaciones adicionales: el modo OFF elimina el halo y mantiene visibles las tarjetas; con ON se verificó una transformación 3D al mover el cursor sobre una tarjeta. La búsqueda de EnerMind sigue mostrando sus tres componentes.
+
+## Modo claro y oscuro
+
+El botón de sol/luna de la cabecera cambia entre ambos temas, también en móvil. Su etiqueta accesible indica la acción y se traduce al cambiar de idioma. La preferencia se conserva en `localStorage` con la clave `portfolio-theme`; si el almacenamiento no está disponible, el cambio sigue funcionando durante la visita. Sin preferencia guardada se mantiene el modo oscuro original.
+
+`src/theme.tsx` controla el selector; `src/theme.css` adapta los colores de todas las secciones. El tema guardado se aplica desde la cabecera de `index.html` antes de montar React para evitar mostrar primero el tema equivocado. Las composiciones gráficas decorativas de los proyectos conservan su fondo oscuro para mantener legibles sus etiquetas.
+
+Se verificaron el cambio de tema, la persistencia tras recargar y la presentación del modo claro en el navegador.
