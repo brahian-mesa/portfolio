@@ -4,6 +4,8 @@ Portafolio con React, TypeScript, Tailwind CSS y Vite. Incluye Inicio, Sobre mí
 
 Diseño oscuro en violeta y cian con portada animada, órbitas, trazado de señal, banda de tecnologías, entradas al desplazarse y transiciones en tarjetas. El pie permite pausar las animaciones y se respeta la preferencia de movimiento reducido. El menú móvil permite acceder a las seis secciones.
 
+Motion para React añade entradas por palabras, partículas, profundidad al cursor, botones magnéticos, tarjetas con inclinación y progreso de lectura. Lucide aporta los iconos SVG. Los efectos compartidos se mantienen en `src/effects.tsx`.
+
 El contenido bilingüe y la formación se mantienen en `copy` y `profile` dentro de `src/main.tsx`. La formación, el correo y LinkedIn fueron confirmados por el usuario. Consultar [las notas de diseño y contenido](docs/diseno.md).
 
 ## Uso local

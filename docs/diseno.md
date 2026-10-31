@@ -29,3 +29,18 @@ El menú móvil contiene las seis secciones y se cierra al elegir un destino. El
 ## Verificación
 
 Compilación con TypeScript/Vite y pruebas del catálogo. Revisión en navegador de menú móvil, navegación a Formación, traducción, búsqueda de EnerMind, copia de correo y pausa de animaciones. Se revisaron también la portada y la navegación en escritorio.
+
+## Interacciones con bibliotecas
+
+Se incorporaron [Motion para React](https://motion.dev/docs/react) y [Lucide React](https://lucide.dev/guide/react). Las versiones instaladas se fijan mediante `package-lock.json`.
+
+- Título de portada con entrada por palabras y desenfoque progresivo.
+- Partículas flotantes y escena de portada que responde suavemente al cursor.
+- Botones principales que siguen ligeramente al cursor con resortes.
+- Tarjetas de tecnologías y proyectos con entrada escalonada e inclinación 3D sutil.
+- Halo de luz que acompaña al cursor y barra superior de progreso de lectura.
+- Iconos SVG de Lucide en tecnologías, satélites de portada y menú móvil.
+
+Los componentes se encuentran en `src/effects.tsx`. Los movimientos de puntero se aplican solo al ratón. No se intercepta el desplazamiento nativo ni se reemplaza el cursor. El control del pie desactiva también los efectos de Motion; la preferencia de movimiento reducido se observa de forma reactiva. Al pausar, las tarjetas permanecen visibles y las inclinaciones vuelven a cero.
+
+Comprobaciones adicionales: el modo OFF elimina el halo y mantiene visibles las tarjetas; con ON se verificó una transformación 3D al mover el cursor sobre una tarjeta. La búsqueda de EnerMind sigue mostrando sus tres componentes.
