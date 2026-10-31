@@ -4,11 +4,13 @@ import { projects, selection } from '../src/projects.ts';
 
 test('preserves approved repositories and includes the revised selection',()=>{
   const repositories = new Set(projects.flatMap(p=>p.repositories.map(r=>r.name)));
-  for(const name of ['FrancentrIA','FrancentrIA-Frontend','firmware-enermind','Urban_Pass','Backend-UrbanPass','Sistema-Admisiones','sistemaNotasAsistencia','Sistema-Asistencia-Notas','GnosisNancy','VencIA','VencIA-co_app']){
+  for(const name of ['FrancentrIA','FrancentrIA-Frontend','firmware-enermind','Urban_Pass','Backend-UrbanPass','Sistema-Admisiones','sistemaNotasAsistencia','GnosisNancy','VencIA','VencIA-co_app']){
     assert.ok(repositories.has(`brahian-mesa/${name}`),name);
   }
   assert.ok(![...repositories].some(name=>/smartstock/i.test(name)));
   assert.ok(selection.excludedRepositories.includes('brahian-mesa/SmartStock-'));
+  const academic=projects.find(p=>p.id==='asistencia-materias');
+  assert.deepEqual(academic.repositories.map(r=>r.name),['brahian-mesa/sistemaNotasAsistencia']);
 });
 
 test('cards have bilingual descriptions and evidence from their linked repositories',()=>{

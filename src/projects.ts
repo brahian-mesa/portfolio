@@ -60,14 +60,13 @@ export const projects: Project[] = [
   {
     id: 'asistencia-materias', name: 'Sistema de asistencia y materias', category: 'web',
     description: {
-      es: 'Aplicación con pantallas de materias, asistencia, notas y calendario escolar. Reúne las dos versiones revisadas del sistema académico.',
-      en: 'Application with subject, attendance, grade and school calendar screens. Groups the two reviewed versions of the academic system.'
+      es: 'Aplicación con pantallas de materias, asistencia, notas y calendario escolar.',
+      en: 'Application with subject, attendance, grade and school calendar screens.'
     },
     technologies: ['React','Vite'],
-    repositories: [{name:'brahian-mesa/sistemaNotasAsistencia',visibility:'public'}, {name:'brahian-mesa/Sistema-Asistencia-Notas',visibility:'private'}],
+    repositories: [{name:'brahian-mesa/sistemaNotasAsistencia',visibility:'public'}],
     evidence: [
       {repository:'brahian-mesa/sistemaNotasAsistencia',path:'src/App.jsx',ref:'main',sha:'02b0ff5357e9992b8ff1f3059d2fc4cc74de2ba7'},
-      {repository:'brahian-mesa/Sistema-Asistencia-Notas',path:'src/App.jsx',ref:'main',sha:'a64ad9aff97758bc8f7cda54bf1ac2c9f4a5827c'},
       {repository:'brahian-mesa/sistemaNotasAsistencia',path:'package.json',ref:'main',sha:'f0a1cacb681ac99e727813a4b10b195c7ce6d3bd'}
     ]
   },
