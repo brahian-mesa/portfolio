@@ -1,0 +1,32 @@
+import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { projects, type Language } from './projects';
+import './style.css';
+
+const copy = {
+  es: {work:'Proyectos', eyebrow:'PORTAFOLIO / BRAHIAN MESA',title:'Ideas que toman',accent:'forma en código.',intro:'Una selección de mi trabajo en aplicaciones web, desarrollo móvil e IoT.',selected:'Trabajo seleccionado', all:'Todos', web:'Web', mobile:'Móvil', iot:'IoT', backend:'Backend', search:'Buscar proyecto o tecnología', count:'proyectos',private:'Repositorio privado',empty:'Repositorio vacío', source:'Fuentes y notas',noResults:'No hay proyectos que coincidan con tu búsqueda.',footer:'Brahian Mesa · Desarrollo de software'},
+  en: {work:'Projects',eyebrow:'PORTFOLIO / BRAHIAN MESA',title:'Ideas taking',accent:'shape in code.',intro:'A selection of my work in web applications, mobile development and IoT.',selected:'Selected work',all:'All',web:'Web',mobile:'Mobile',iot:'IoT',backend:'Backend',search:'Search projects or technology',count:'projects',private:'Private repository',empty:'Empty repository',source:'Sources and notes',noResults:'No projects match your search.',footer:'Brahian Mesa · Software development'}
+};
+
+function App(){
+  const [lang,setLang]=useState<Language>('es');
+  const [filter,setFilter]=useState('all');
+  const [query,setQuery]=useState('');
+  const t=copy[lang];
+  const visible=projects.filter(p=>(filter==='all'||p.category===filter)&&`${p.name} ${p.description[lang]} ${p.technologies.join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()));
+  function changeLanguage(){const next=lang==='es'?'en':'es';setLang(next);document.documentElement.lang=next;document.title=`Brahian Mesa · ${copy[next].work}`;}
+  return <>
+    <a className="skip" href="#projects">{t.work}</a>
+    <header className="flex items-center justify-between"><a className="brand" href="#">BM<span>.</span></a><nav className="flex items-center gap-6" aria-label={lang==='es'?'Principal':'Main'}><a href="#projects">{t.work}</a><a href="https://github.com/brahian-mesa" target="_blank" rel="noreferrer">GitHub ↗</a><button className="language" onClick={changeLanguage} aria-label={lang==='es'?'Switch to English':'Cambiar a español'}>{lang==='es'?'EN':'ES'}</button></nav></header>
+    <main>
+      <section className="hero"><p className="eyebrow">{t.eyebrow}</p><h1>{t.title}<br/><span>{t.accent}</span></h1><p className="intro">{t.intro}</p><a className="hero-link" href="#projects">{t.work} <span aria-hidden="true">↓</span></a><div className="hero-mark" aria-hidden="true">{'{ }'}<small>WEB / MOBILE / IoT</small></div></section>
+      <section id="projects" aria-labelledby="work-title"><div className="section-head"><div><p className="eyebrow">01 / {t.work.toUpperCase()}</p><h2 id="work-title">{t.selected}</h2></div><p role="status">{visible.length} {visible.length === 1 ? (lang === 'es' ? 'proyecto' : 'project') : t.count}</p></div>
+        <div className="toolbar"><div className="filters" aria-label={lang==='es'?'Filtrar proyectos':'Filter projects'}>{(['all','web','mobile','iot','backend'] as const).map(category=><button key={category} aria-pressed={filter===category} onClick={()=>setFilter(category)}>{t[category]}</button>)}</div><input type="search" aria-label={t.search} placeholder={t.search} value={query} onChange={e=>setQuery(e.target.value)}/></div>
+        <div className="project-grid">{visible.map(p=><article key={p.id}><div className="project-top"><span className="eyebrow">{t[p.category]}</span><span aria-hidden="true">↗</span></div><h3>{p.name}</h3><p className="description">{p.description[lang]}</p><ul className="tags" aria-label={lang==='es'?'Tecnologías':'Technologies'}>{p.technologies.map(tech=><li key={tech}>{tech}</li>)}</ul><div className="repositories">{p.repositories.map(repo=><div key={repo.name}><a href={`https://github.com/${repo.name}`} target="_blank" rel="noreferrer">{repo.name.split('/')[1]} ↗</a>{repo.visibility==='private'&&<small>{t.private}</small>}{repo.empty&&<small>{t.empty}</small>}</div>)}</div></article>)}</div>
+        {visible.length===0&&<p className="empty">{t.noResults}</p>}
+      </section>
+    </main>
+    <footer><span>{t.footer}</span><a href="https://github.com/brahian-mesa/portfolio/blob/main/docs/catalogo-proyectos.md" target="_blank" rel="noreferrer">{t.source} ↗</a></footer>
+  </>;
+}
+createRoot(document.getElementById('root')!).render(<App/>);
