@@ -15,9 +15,9 @@ npm run dev
 
 ## Catálogo
 
-Incluye FrancentrIA, EnerMind Firmware, Sistema de asistencia y materias, GnosisNancy, VencIA-co, Urban Pass, UrbanPass Backend y Sistema-Admisiones. SmartStock está excluido.
+Incluye FrancentrIA, EnerMind Firmware, EnerMind API, EnerMind App, Sistema de asistencia y materias, GnosisNancy, VencIA-co, Urban Pass, UrbanPass Backend y Sistema-Admisiones. SmartStock está excluido.
 
-La incorporación de la cuenta **enermid-energy** sigue pendiente de recibir un enlace verificable. Los repositorios privados se identifican en cada tarjeta y requieren acceso en GitHub.
+La organización correcta es **Enermind-energy**. Se verificaron e incorporaron `enermind-api` y `enermind-app`. Los repositorios privados se identifican en cada tarjeta y requieren acceso en GitHub.
 
 Editar `src/projects.ts` para mantener una única fuente de datos. Consultar [la selección documentada y las fuentes](docs/catalogo-proyectos.md) antes de cambiar nombres, repositorios o descripciones.
 

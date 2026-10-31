@@ -25,7 +25,12 @@ test('cards have bilingual descriptions and evidence from their linked repositor
   }
 });
 
-test('unverified organization stays pending rather than becoming invented cards',()=>{
-  assert.ok(selection.pending.some(item=>item.owner==='enermid-energy'));
-  assert.ok(!projects.some(p=>p.repositories.some(r=>r.name.startsWith('enermid-energy/'))));
+test('corrected organization includes both verified repositories and preserves firmware',()=>{
+  const repositories=projects.flatMap(p=>p.repositories.map(r=>r.name));
+  assert.ok(repositories.includes('Enermind-energy/enermind-api'));
+  assert.ok(repositories.includes('Enermind-energy/enermind-app'));
+  assert.ok(repositories.includes('brahian-mesa/firmware-enermind'));
+  assert.equal(selection.pending.length,0);
+  assert.ok(selection.resolvedOwners.some(item=>item.actual==='Enermind-energy'));
+  assert.ok(!repositories.some(name=>name.startsWith('enermid-energy/')));
 });

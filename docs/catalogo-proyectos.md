@@ -1,6 +1,6 @@
 # Selección de proyectos
 
-Revisión: 31 de octubre de 2026. Fuente: metadatos, directorios, README y archivos consultados mediante la conexión de GitHub. Las descripciones reflejan documentación o pantallas presentes; no certifican funcionamiento en producción.
+Revisión: 31 de octubre de 2026. Fuente: metadatos, directorios, README y archivos consultados mediante la conexión de GitHub y Git autenticado del equipo. Las descripciones reflejan documentación o pantallas presentes; no certifican funcionamiento en producción.
 
 ## Estado inicial
 
@@ -9,7 +9,7 @@ La carpeta `C:\Users\usuario\Dev\Portafolio` estaba vacía. Se clonó `brahian-m
 ## Conservados
 
 - **FrancentrIA**: [backend](https://github.com/brahian-mesa/FrancentrIA) y [frontend](https://github.com/brahian-mesa/FrancentrIA-Frontend). Ambos privados. Los README usan la marca «FacentrIA» y describen asistencia mediante reconocimiento facial. Se conserva «FrancentrIA» como nombre solicitado y nombre exacto de repositorio. `main` solo contiene README; estos remiten el desarrollo activo a `dev`. No se atribuye un stack ni una implementación terminada.
-- **EnerMind · Firmware**: [firmware-enermind](https://github.com/brahian-mesa/firmware-enermind), privado. README: ESP32, PlatformIO, PZEM-004T, OLED, Wi-Fi y MQTT. Se conserva independientemente de la cuenta pendiente de identificar. No se presenta como validado físicamente.
+- **EnerMind · Firmware**: [firmware-enermind](https://github.com/brahian-mesa/firmware-enermind), privado. README: ESP32, PlatformIO, PZEM-004T, OLED, Wi-Fi y MQTT. Se conserva junto con la API y la app de la organización. No se presenta como validado físicamente.
 - **Urban Pass**: [Urban_Pass](https://github.com/brahian-mesa/Urban_Pass), privado. Se conserva exactamente el repositorio aprobado con guion bajo. Existe también `Urban-Pass`, pero no se sustituye ni se agrega sin motivo. README con instrucciones de instalación; se omiten funcionalidades no documentadas.
 - **UrbanPass · Backend**: [Backend-UrbanPass](https://github.com/brahian-mesa/Backend-UrbanPass), público. README: Java, Spring Boot, MySQL, JWT y gestión de usuarios, rutas y servicios.
 - **Sistema-Admisiones**: [repositorio](https://github.com/brahian-mesa/Sistema-Admisiones), público. `package.json` declara Express; README sin descripción funcional. No se inventan procesos de admisión.
@@ -24,11 +24,14 @@ La carpeta `C:\Users\usuario\Dev\Portafolio` estaba vacía. Se clonó `brahian-m
 
 - [SmartStock-](https://github.com/brahian-mesa/SmartStock-): excluido por instrucción del usuario. No aparece en tarjetas, búsqueda ni filtros. Su exclusión queda registrada para evitar reincorporarlo por sincronizaciones futuras.
 
-## Pendiente: enermid-energy
+## Resuelto: Enermind-energy
 
-La consulta exacta `user:enermid-energy` devuelve error de validación de GitHub (cuenta inexistente o inaccesible). La lista de repositorios accesibles para ese propietario está vacía. También se comprobó la variante `enermind-energy`, sin resultados accesibles. Esto no demuestra que no existan repositorios privados fuera de los permisos de la conexión.
+La captura del usuario corrigió el nombre inicialmente escrito `enermid-energy` a **Enermind-energy** y proporcionó los nombres `enermind-api` y `enermind-app`. La conexión de GitHub devuelve 404 para ambos repositorios y no los enumera; esto es una limitación de acceso de la conexión. El acceso Git autenticado del equipo permitió consultar y clonar ambos, verificando la rama `main` y su documentación. Ya no queda pendiente su incorporación.
 
-Se necesita el enlace exacto de la cuenta o de uno de sus repositorios para completar esta incorporación. No se crean tarjetas ni enlaces ficticios. La selección pendiente queda en `selection.pending`, fuera de la vista pública.
+- **EnerMind · API**: [Enermind-energy/enermind-api](https://github.com/Enermind-energy/enermind-api). Revisado en commit `141f9108e13b1211d8fa07ff884fe1913d4bb6d7`. El README describe monitoreo energético industrial, recepción MQTT, REST/WebSocket, anomalías y proyecciones; `pyproject.toml` confirma Python, FastAPI, paho-mqtt y scikit-learn. No se atribuye LSTM: el propio README indica que no está implementado.
+- **EnerMind · App**: [Enermind-energy/enermind-app](https://github.com/Enermind-energy/enermind-app). Revisado en commit `c893e3a7b03743f65eee25704c9fdf9c752bfcc4`. README: aplicación móvil del mismo sistema con consumo, dispositivos, análisis y alertas. `package.json` confirma Expo, React Native, TypeScript y Zustand. No se afirma publicación en tiendas ni validación física de dispositivos.
+
+Se presentan en dos fichas para distinguir backend y aplicación móvil, conservando la ficha de firmware aprobada. Ambos README indican uso privado interno; se etiquetan como repositorios privados. No se ejecutaron estos proyectos ni se consultaron archivos de entorno. Las evidencias registradas son SHA de los archivos de documentación y dependencias; no se copió el código de estos repositorios al portafolio.
 
 Se verificó [brahian-mesa/Pagina-Enermid](https://github.com/brahian-mesa/Pagina-Enermid), pero pertenece a la cuenta personal y su README es el inicial de Astro. Se registra como candidato, sin sustituir a la organización solicitada ni añadirlo automáticamente.
 
@@ -36,4 +39,4 @@ Se verificó [brahian-mesa/Pagina-Enermid](https://github.com/brahian-mesa/Pagin
 
 `src/projects.ts` es la fuente única de las tarjetas y contiene repositorios exactos, visibilidad, descripciones ES/EN y evidencias con ruta, rama y SHA del archivo consultado. Los SHA son de blobs de Git, no commits. No se copiaron credenciales, archivos de entorno ni código privado al portafolio público.
 
-Para agregar un proyecto, confirmar primero propietario, nombre, visibilidad y contenido. Actualizar ambas traducciones y registrar evidencia. Para completar la organización pendiente, enumerar sus repositorios accesibles, excluir archivos de perfil o repositorios vacíos de las afirmaciones funcionales y agrupar frontend/backend únicamente cuando la documentación respalde la relación. Ejecutar `npm test` y `npm run build` antes de subir cambios.
+Para agregar un proyecto, confirmar primero propietario, nombre, visibilidad y contenido. Actualizar ambas traducciones y registrar evidencia. Excluir archivos de perfil o repositorios vacíos de las afirmaciones funcionales y agrupar frontend/backend únicamente cuando la documentación respalde la relación. Ejecutar `npm test` y `npm run build` antes de subir cambios.

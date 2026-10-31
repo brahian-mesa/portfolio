@@ -35,6 +35,29 @@ export const projects: Project[] = [
     evidence: [{repository:'brahian-mesa/firmware-enermind',path:'README.md',ref:'main',sha:'d1fe7962a24134ea9f6a183bec6ac376cc2a9401'}]
   },
   {
+    id: 'enermind-api', name: 'EnerMind · API', category: 'backend',
+    description: {
+      es: 'Backend de monitoreo energético industrial. Su documentación describe recepción de mediciones por MQTT, datos por REST y WebSocket, detección de anomalías y proyección de consumo.',
+      en: 'Industrial energy monitoring backend. Its documentation describes MQTT measurement ingestion, REST and WebSocket data, anomaly detection and consumption projections.'
+    },
+    technologies: ['Python','FastAPI','MQTT','scikit-learn'],
+    repositories: [{name:'Enermind-energy/enermind-api',visibility:'private'}],
+    evidence: [{repository:'Enermind-energy/enermind-api',path:'README.md',ref:'main',sha:'38e33fdc4b24f79d8f406a179104c1b6a3b7ab3b'}]
+  },
+  {
+    id: 'enermind-app', name: 'EnerMind · App', category: 'mobile',
+    description: {
+      es: 'Aplicación móvil de monitoreo energético industrial. Su README documenta pantallas de consumo, dispositivos, análisis y alertas, con comunicación con la API de EnerMind.',
+      en: 'Industrial energy monitoring mobile application. Its README documents consumption, device, analysis and alert screens, communicating with the EnerMind API.'
+    },
+    technologies: ['Expo','React Native','TypeScript','Zustand'],
+    repositories: [{name:'Enermind-energy/enermind-app',visibility:'private'}],
+    evidence: [
+      {repository:'Enermind-energy/enermind-app',path:'README.md',ref:'main',sha:'86dea7de310f7071edee167bd3b36b835e6c5fe3'},
+      {repository:'Enermind-energy/enermind-app',path:'package.json',ref:'main',sha:'1eaee7915e1d260b9cd0b4830028c6529b56f05a'}
+    ]
+  },
+  {
     id: 'asistencia-materias', name: 'Sistema de asistencia y materias', category: 'web',
     description: {
       es: 'Aplicación con pantallas de materias, asistencia, notas y calendario escolar. Reúne las dos versiones revisadas del sistema académico.',
@@ -103,10 +126,11 @@ export const projects: Project[] = [
   }
 ];
 
-// Kept out of visitor-facing cards until an exact repository can be verified.
+// Selection decisions and verification status, separate from visitor-facing cards.
 export const selection = {
   reviewedAt: '2026-10-31',
   excludedRepositories: ['brahian-mesa/SmartStock-'],
-  pending: [{owner:'enermid-energy',reason:'No accessible account or repositories returned by GitHub. Exact URL required.'}],
+  pending: [],
+  resolvedOwners: [{requested:'enermid-energy',actual:'Enermind-energy',source:'User screenshot; repositories verified through authenticated Git.'}],
   candidates: [{repository:'brahian-mesa/Pagina-Enermid',reason:'Verified under personal account; not confirmed as the requested organization project.'}]
 };
