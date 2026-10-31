@@ -1,8 +1,10 @@
 # Portafolio · Brahian Mesa
 
-Portafolio con React, TypeScript, Tailwind CSS y Vite. Incluye portada, sección «Sobre mí» y catálogo de proyectos. Interfaz adaptable en español e inglés, búsqueda y filtros por categoría.
+Portafolio con React, TypeScript, Tailwind CSS y Vite. Incluye Inicio, Sobre mí, Tecnologías, Proyectos, Formación y Contacto. Interfaz adaptable en español e inglés, búsqueda y filtros por categoría.
 
-La sección «Sobre mí» se encuentra después de la portada, con acceso desde el menú (`#about`). Su presentación se basa en las áreas de los proyectos verificados; no atribuye formación, empleos ni años de experiencia. El texto bilingüe se mantiene en `aboutCopy` dentro de `src/main.tsx`.
+Diseño oscuro en violeta y cian con portada animada, órbitas, trazado de señal, banda de tecnologías, entradas al desplazarse y transiciones en tarjetas. El pie permite pausar las animaciones y se respeta la preferencia de movimiento reducido. El menú móvil permite acceder a las seis secciones.
+
+El contenido bilingüe y la formación se mantienen en `copy` y `profile` dentro de `src/main.tsx`. La formación, el correo y LinkedIn fueron confirmados por el usuario. Consultar [las notas de diseño y contenido](docs/diseno.md).
 
 ## Uso local
 
